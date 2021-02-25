@@ -19,7 +19,6 @@
   "homepage": "https://github.com/BALAGA-GAYATRI/practise_actions#readme",
   "dependencies": {
     "@actions/core": "^1.2.6",
-    "@actions/github": "^4.0.0",
-    "discord.js": "github:discordjs/discord.js"
+    "@actions/github": "^4.0.0"
   }
 }
