@@ -1,0 +1,15 @@
+on: [push]
+name: build
+jobs:
+  build:
+    name: Example
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
+      - name: Test with names
+        run: echo $NAME 
+        env:
+          NAME: gayatri-${{ steps.date.outputs.date }}
+        
