@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v1
-       - name: Hello world action step default action
+      - name: Hello world action step default action
         uses: actions/hello-world-javascript-action@v1.1
         id: hello
         with:
