@@ -7,15 +7,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v1
-      - name: Hello world action step default action
-        uses: actions/hello-world-javascript-action@v1.1
+      - name: Hello world action step
+        uses: ./ 
         id: hello
         with:
           who-to-greet: 'Gayatri'
-      # - name: Hello world action step
-      #   uses: ./ 
-      #   id: hello
-      #   with:
-      #     who-to-greet: 'Gayatri'
       - name: Get the output time
         run: echo "The time was ${{ steps.hello.outputs.time }}"
