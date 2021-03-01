@@ -2,7 +2,7 @@ const  core = require('@actions/core');
 const github = require('@actions/github');
 
 try {
-  // `who-to-greet` input defined in action metadata file
+//   `who-to-greet` input defined in action metadata file
   var start = Date.now();
   const nameToGreet = core.getInput('who-to-greet');
   console.log(`Hello ${nameToGreet}!`);
@@ -13,6 +13,7 @@ try {
   console.log(`The event payload: ${payload}`);
   var end = Date.now();
   const execTime = end-start;
+  core.setOutput("execTime", execTime);
 } catch (error) {
   core.setFailed(error.message);
 }
