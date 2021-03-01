@@ -15,4 +15,4 @@ jobs:
       - name: Get the output time
         run: echo "The time was ${{ steps.hello.outputs.time }}"
       - name: Get execution time of js
-        run: echo "The execution time of index.js ${{ steps.hello.outputs.execTime}}"
+        run: echo "The execution time of index.js ${{ steps.hello.outputs.execTime }} ms"
