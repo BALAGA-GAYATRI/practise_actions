@@ -8,6 +8,8 @@ inputs:
 outputs:
   time: 
     description: 'The time we greeted you'
+  execTime:
+    description: 'The time taken by index.js to execute'
 runs:
   using: 'node12'
   main: 'index.js'
