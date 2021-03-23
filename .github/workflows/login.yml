@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-    - uses: balaga-gayatri/practise_actions@dev_creds
+    - uses: balaga-gayatri/login@dev_creds
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
         creds_client_id: '8751f16d-d2bc-49ea-8c19-1fd2b19b22bf'
