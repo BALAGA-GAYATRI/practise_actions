@@ -1,5 +1,6 @@
-on: [push]
-
+on:
+  push:
+    branches: [ master]
 name: AzureLoginSample
 
 jobs:
@@ -8,9 +9,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-    - uses: azure/login@v1
+    - uses: balaga-gayatri/practise_actions@dev_creds
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
+        creds_client_id: '8751f16d-d2bc-49ea-8c19-1fd2b19b22bf'
+        creds_client_secret: 'upbR8XbjZAuD2RV_Gd1iZnFxiCEiolEOvs'
+        creds_tenant_id: '72f988bf-86f1-41af-91ab-2d7cd011db47'
+        creds_subscription_id: 'c00d16c7-6c1f-4c03-9be1-6934a4c49682'
 
     - run: |
         az vm list
