@@ -1,6 +1,5 @@
-on:
-  push:
-    branches: [ master]
+on: [push]
+
 name: AzureLoginSample
 
 jobs:
