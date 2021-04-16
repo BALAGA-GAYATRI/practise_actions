@@ -10,11 +10,11 @@ jobs:
 
     - uses: balaga-gayatri/login@dev_creds
       with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
-        # creds_client_id: ${{ secrets.CLIENT_ID }}
-        # creds_client_secret: ${{ secrets.CLIENT_SECRET }}
-        # creds_tenant_id: ${{ secrets.TENANT_ID }}
-        # creds_subscription_id:  ${{ secrets.SUBSCRIPTION_ID }}
+        # creds: ${{ secrets.AZURE_CREDENTIALS }}
+        creds_client_id: ${{ secrets.CLIENT_ID }}
+        creds_client_secret: ${{ secrets.CLIENT_SECRET }}
+        creds_tenant_id: ${{ secrets.TENANT_ID }}
+        creds_subscription_id:  ${{ secrets.SUBSCRIPTION_ID }}
 
     - run: |
         az vm list
