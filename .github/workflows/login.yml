@@ -7,7 +7,15 @@ jobs:
   build-and-deploy:
     runs-on: self-hosted
     steps:
-
+    
+    - name: Azure CLI script
+      uses: azure/CLI@v1
+      with:
+        azcliversion: 2.0.72
+        inlineScript: |
+          az account show
+          az logout
+          az account show
     - uses: balaga-gayatri/login@dev_creds
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
