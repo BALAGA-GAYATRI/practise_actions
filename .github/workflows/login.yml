@@ -16,7 +16,7 @@ jobs:
 #           az account show
 #           az logout
 #           az account show
-    - uses: balaga-gayatri/login@dev_creds
+    - uses: balaga-gayatri/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
 #         creds_client_id: ${{ secrets.CLIENT_ID }}
