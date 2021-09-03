@@ -5,26 +5,13 @@ name: AzureLoginSample
 jobs:
 
   build-and-deploy:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
-    
-#     - name: Azure CLI script
-#       uses: azure/CLI@v1
-#       with:
-#         azcliversion: 2.0.72
-#         inlineScript: |
-#           az account show
-#           az logout
-#           az account show
-    - uses: balaga-gayatri/login@v1
+    - uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
-#         creds_client_id: ${{ secrets.CLIENT_ID }}
-#         creds_client_secret: ${{ secrets.CLIENT_SECRET }}
-#         creds_tenant_id: ${{ secrets.TENANT_ID }}
-#         creds_subscription_id:  ${{ secrets.SUBSCRIPTION_ID }}
-
     - run: |
+        sleep 5m
         az vm list
 
 
