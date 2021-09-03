@@ -11,7 +11,7 @@ jobs:
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
     - run: |
-        cp actions-runner action-runner-copy --recursive
+        cp -R actions-runner action-runner-copy 
         sleep 1000
         az vm list
 
