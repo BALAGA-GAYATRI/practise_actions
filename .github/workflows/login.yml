@@ -12,8 +12,8 @@ jobs:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
         enable-AzPSSession: true
     - run: |
-        cp -R /Users/balaga-gayatri/actions-runner /Users/balaga-gayatri/action-runner-copy-ps 
-        sleep 420
+        # cp -R /Users/balaga-gayatri/actions-runner /Users/balaga-gayatri/action-runner-copy-ps 
+        # sleep 420
         az vm list
 
 
