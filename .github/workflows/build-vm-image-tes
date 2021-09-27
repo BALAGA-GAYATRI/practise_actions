@@ -1,0 +1,38 @@
+    name: create_custom_vm_image
+    on: [push]
+
+    jobs:
+      BUILD-CUSTOM-IMAGE:
+        runs-on: windows-latest    
+        steps:
+        - name: Checkout
+          uses: actions/checkout@v2    
+
+        - name: Login via Az module
+            uses: azure/login@v1
+            with:
+              creds: ${{secrets.AZURE_CREDENTIALS_VM}}
+
+        - name: CREATE APP BAKED VM IMAGE
+          id: imageBuilder
+          uses: azure/build-vm-image@v0
+          with:
+            location: 'eastus'
+            resource-group-name: 'test-build-vm'
+            managed-identity: 'test-managed-identity' # Managed identity as mentioned in pre-requisites.
+
+            source-os-type: 'windows'
+            source-image-type: 'platformImage'
+            source-image: MicrosoftWindowsServer:WindowsServer:2019-Datacenter:latest #unique  identitifier of source image
+
+            dist-resource-id: '/subscriptions/{{secrets.SUBSCRIPTION_ID}}/resourceGroups/test-build-vm/providers/Microsoft.Compute/images/new-image'
+            dist-location: 'eastus'
+
+        - name: CREATE VM
+          uses: azure/CLI@v1
+          with:
+            azcliversion: 2.0.72
+            inlineScript: |
+              az vm create --resource-group test-build-vm  --name "app-vm-${{ GITHUB.RUN_NUMBER }}"  --admin-username myusername --admin-password "${{ secrets.VM_PWD }}" --location  eastus \
+              --image "${{ steps.imageBuilder.outputs.custom-image-uri }}"              
+        
