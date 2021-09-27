@@ -25,8 +25,6 @@
             source-image-type: 'platformImage'
             source-image: MicrosoftWindowsServer:WindowsServer:2019-Datacenter:latest #unique  identitifier of source image
 
-            dist-resource-id: '/subscriptions/{{secrets.SUBSCRIPTION_ID}}/resourceGroups/test-build-vm/providers/Microsoft.Compute/images/new-image'
-            dist-location: 'eastus'
 
         - name: CREATE VM
           uses: azure/CLI@v1
