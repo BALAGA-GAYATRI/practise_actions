@@ -1,5 +1,5 @@
     name: create_custom_vm_image
-    on: [push]
+    on: workflow_dispatch
 
     jobs:
       BUILD-CUSTOM-IMAGE:
