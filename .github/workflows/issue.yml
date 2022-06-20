@@ -14,7 +14,7 @@ jobs:
       - name: Set DATE environment variable
         run: |
           echo "DATE=$(date -d +"2 days" +"%b %d, %Y")" >> $GITHUB_ENV
-          echo $(Date +%W) % 2 
+          echo $(date +%W) % 2 
       - name: Create actions weekly demo issue for C2C-Actions-Enablers
         uses: imjohnbo/issue-bot@3daae12aa54d38685d7ff8459fc8a2aee8cea98b
         with:
