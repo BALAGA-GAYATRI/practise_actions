@@ -1,7 +1,7 @@
-name:  Create actions weekly demo issue
+name:  Create SIG-EDT issue
 on:
   schedule:
-    - cron:  0 8 * * 1
+    - cron:  0 8 8-14,22-28 * 1
   workflow_dispatch:
     
 jobs:
@@ -14,8 +14,8 @@ jobs:
       - name: Set DATE environment variable
         run: |
           echo "DATE=$(date -d +"2 days" +"%b %d, %Y")" >> $GITHUB_ENV
-          echo $(date +%W) % 2 
-      - name: Create actions weekly demo issue for C2C-Actions-Enablers
+          
+      - name: Create SIG-EDT issue
         uses: imjohnbo/issue-bot@3daae12aa54d38685d7ff8459fc8a2aee8cea98b
         with:
           title: "SIG-EDT Meeting on: ${{ env.DATE }}"
