@@ -1,7 +1,7 @@
 name:  Create actions weekly demo issue
 on:
   schedule:
-    - cron: 30 17 * * 5
+    - cron:  0 8 * * 1
   workflow_dispatch:
     
 jobs:
@@ -12,7 +12,9 @@ jobs:
       issues: write
     steps:
       - name: Set DATE environment variable
-        run: echo "DATE=$(date -d +"2 days" +"%b %d, %Y")" >> $GITHUB_ENV
+        run: |
+          echo "DATE=$(date -d +"2 days" +"%b %d, %Y")" >> $GITHUB_ENV
+          echo $(Date +%W) % 2 
       - name: Create actions weekly demo issue for C2C-Actions-Enablers
         uses: imjohnbo/issue-bot@3daae12aa54d38685d7ff8459fc8a2aee8cea98b
         with:
