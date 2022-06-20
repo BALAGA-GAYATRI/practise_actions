@@ -1,0 +1,35 @@
+name:  Create actions weekly demo issue
+on:
+  schedule:
+    - cron: 30 17 * * 5
+  workflow_dispatch:
+    
+jobs:
+  create_issue:
+    name: Create SIG-EDT issue
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: Set DATE environment variable
+        run: echo "DATE=$(date -d +"2 days" +"%b %d, %Y")" >> $GITHUB_ENV
+      - name: Create actions weekly demo issue for C2C-Actions-Enablers
+        uses: imjohnbo/issue-bot@3daae12aa54d38685d7ff8459fc8a2aee8cea98b
+        with:
+          title: "SIG-EDT Meeting on: ${{ env.DATE }}"
+          labels: "SIG-EDT"
+          body: |
+              ### Meeting Date
+              ${{ env.DATE }}
+              ### Topics Presented
+                - [ ] adr to be presented
+                - [ ] topic / document presented
+
+              ### Link to the meeting recording.
+                - [ ] rewatch
+                - [ ] zoom-cloud
+
+          pinned: false
+          close-previous: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
