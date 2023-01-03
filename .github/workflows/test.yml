@@ -3,7 +3,7 @@ on: [workflow_dispatch]
 
 jobs:
   build-with-secrets:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
 #     environment: test_env_1
     steps:
     - name: Log test secrets
