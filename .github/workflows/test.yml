@@ -1,7 +1,19 @@
- on: [workflow_dispatch]
- 
- jobs:
-   build:
-     runs-on: ubuntu-latest
-     steps:
-     - uses: GH-ACE/sample_action@main
+name: secrets
+on: [workflow_dispatch]
+
+jobs:
+  build-with-secrets:
+    runs-on: self-hosted
+#     environment: test_env_1
+    steps:
+    - name: Log test secrets
+      run: |
+        token=${{ secrets.REPO_SECRET_1 }}
+        echo $token
+        echo ${token:0:5}
+        
+# echo ${token:5}
+#         token=${{ secrets.ENV_SECRET_1 }}
+#         echo $token
+#         echo ${token:0:5}
+#         echo ${token:5}
